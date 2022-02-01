@@ -40,8 +40,8 @@ def score_card(csv_reader):
                 players_dict[line[3]]['matches'] +=1
         else:
             break
-    print(country_dict['India'])
-    print(players_dict)
+    # print(country_dict['India'])
+    # print(players_dict)
     teams = list(country_dict.keys())
     match_between = 'India' + " and "+ teams[1-(teams.index('India'))]
     if match_between in country_match_dict:
@@ -117,8 +117,8 @@ def score_card(csv_reader):
         if len(line) == 16:
             input_ball = list(line)
             update_score_by_ball(input_ball)
-    print(country_dict['India'])
-    print(country_dict[teams[1-(teams.index('India'))]])
+    # print(country_dict['India'])
+    # print(country_dict[teams[1-(teams.index('India'))]])
     # print(players_dict)
 
 
@@ -134,7 +134,7 @@ with open("64943.csv","r") as csv_file:
 with open("65032.csv","r") as csv_file:
     csv_reader = csv.reader(csv_file)
     score_card(csv_reader)
-print(players_dict)
+# print(players_dict)
 
 
 
