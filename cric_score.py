@@ -16,6 +16,7 @@ def score_card(csv_reader):
     # line = list(next(csv_reader))
     country_dict = dict()
     i = 1
+    print("** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** **")
 
     for line in csv_reader:
         if i == 20:
@@ -34,10 +35,15 @@ def score_card(csv_reader):
                                                       'strike_rate': 0, '4s': 0, '6s': 0, 'wickets': 0, 'overs': 0,
                                                       'runs_conceded': 0, 'economy': 0}
             if line[3] not in players_dict:
-                players_dict[line[3]] = {'matches':0,'total_score': 0, 'total_balls': 0, 'total_strike_rate': 0, 'innings': 0,
+                players_dict[line[3]] = {'matches':1,'total_score': 0, 'total_balls': 0, 'total_strike_rate': 0, 'innings': 0,
                                          'average': 0, 'wickets': 0,'total_4s':0,'total_6s':0,'50s':0,'100s':0}
             if line[3] in players_dict:
                 players_dict[line[3]]['matches'] +=1
+                if players_dict[line[3]]['matches'] % 50 == 0:
+                    print("It is " + str(players_dict[line[3]]['matches']) + "th match for "+line[3] )
+                if players_dict[line[3]]['total_score']%1000 > 1000:
+                    runs_needed_for_n_1000_runs = (((players_dict[line[3]]['total_score'] // 1000)+1)*1000) - players_dict[line[3]]['total_score']
+                    print(line[3]+" need "+str(runs_needed_for_n_1000_runs) + " runs for reaching "+ str((((players_dict[line[3]]['total_score'] // 1000)+1)*1000))+ " runs." )
         else:
             break
     # print(country_dict['India'])
