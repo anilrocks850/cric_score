@@ -1,4 +1,5 @@
 # cric_score
+Code was written in " cric_score.py " file.
 updating scores match by match..
 with using match wise ball by ball data in csv format,I created stats of each player from https://cricsheet.org/downloads/.
 Intially I took only ODI matches played by India,
