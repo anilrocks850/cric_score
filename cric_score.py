@@ -137,9 +137,9 @@ with open("64941.csv","r") as csv_file:
 with open("64943.csv","r") as csv_file:
     csv_reader = csv.reader(csv_file)
     score_card(csv_reader)
-with open("65032.csv","r") as csv_file:
-    csv_reader = csv.reader(csv_file)
-    score_card(csv_reader)
+# with open("65032.csv","r") as csv_file:
+#     csv_reader = csv.reader(csv_file)
+#     score_card(csv_reader)
 # print(players_dict)
 
 
