@@ -39,6 +39,7 @@ def score_card(csv_reader):
                                          'average': 0, 'wickets': 0,'total_4s':0,'total_6s':0,'50s':0,'100s':0}
             if line[3] in players_dict:
                 players_dict[line[3]]['matches'] +=1
+                # if any landmark match or nearer to N*1000 runs
                 if players_dict[line[3]]['matches'] % 50 == 0:
                     print("It is " + str(players_dict[line[3]]['matches']) + "th match for "+line[3] )
                 if players_dict[line[3]]['total_score']%1000 > 1000:
