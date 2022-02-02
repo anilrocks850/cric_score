@@ -9,7 +9,7 @@ from lines from 21 to 42:
     #line[2] is country name ,line[3] is player name in csv file, which are in csv file from line 21
     #country_dict is teams containing player's names and their performance in this particula match
     #players_dict contains all players and their total performance cumulative of performance in all the matches each player had played
-rom lines from 69 to end:
+from lines from 69 to end:
     #line[3] is country name ,line[4] is player name who is in strike for this particular ball
     #line[6] is bowler who  bowled that ball
     # line[7] is runs scored on this ball,line[8] is runs in extras on this ball
