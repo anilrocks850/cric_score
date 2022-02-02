@@ -11,7 +11,6 @@ def ordinal_for_num (n):
     if n>3:
         return 'th'
 
-
 def score_card(csv_reader):
     # line = list(next(csv_reader))
     country_dict = dict()
@@ -25,6 +24,8 @@ def score_card(csv_reader):
     for line in csv_reader:
         if len(line) == 4:
             line = list(line)
+            #line[2] is country name ,line[3] is player name in csv file, which are in csv file from line 21
+            #country_dict is teams containing player's names and their performance in this particula match
             if line[2] not in country_dict:
                 country_dict[line[2]] = {'team_score': 0, 'wickets': 0}
                 country_dict[line[2]][line[3]] = {'score': 0, 'balls': 0, 'strike_rate': 0, '4s': 0,
@@ -34,6 +35,7 @@ def score_card(csv_reader):
                     country_dict[line[2]][line[3]] = {'score': 0, 'balls': 0, 'strike_rate': 0,
                                                       'strike_rate': 0, '4s': 0, '6s': 0, 'wickets': 0, 'overs': 0,
                                                       'runs_conceded': 0, 'economy': 0}
+            #players_dict contains all players and their total performance cumulative of performance in all the matches each player had played
             if line[3] not in players_dict:
                 players_dict[line[3]] = {'matches':1,'total_score': 0, 'total_balls': 0, 'total_strike_rate': 0, 'innings': 0,
                                          'average': 0, 'wickets': 0,'total_4s':0,'total_6s':0,'50s':0,'100s':0}
@@ -59,6 +61,9 @@ def score_card(csv_reader):
         print("This is 1st match between " + match_between)
 
     def update_score_by_ball(input_ball):
+        #line[3] is country name ,line[4] is player name who is in strike for this particular ball
+        #line[6] is bowler who  bowled that ball
+        # line[7] is runs scored on this ball,line[8] is runs in extras on this ball
         x = (country_dict[input_ball[3]][input_ball[4]]['score']) // 50
         country_dict[input_ball[3]][input_ball[4]]['score'] += int(input_ball[7])
         # if it is 4 or 6
@@ -68,8 +73,6 @@ def score_card(csv_reader):
         if int(input_ball[7]) == 6:
             country_dict[input_ball[3]][input_ball[4]]['6s'] += 1
             players_dict[line[4]]['total_6s'] += 1
-
-
         # 50 and 100
         y = (country_dict[input_ball[3]][input_ball[4]]['score']) // 50
         if y-x == 1 and y==1:
